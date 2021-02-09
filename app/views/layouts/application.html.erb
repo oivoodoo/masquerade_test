@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MasqueradeTest</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <%flash.each do |name,msg| %>
+      <%unless name.to_s == 'timedout'%>
+        <div>
+          <%= content_tag :div, msg, 
+             :id => "flash_#{name}" if msg.is_a?(String)%>
+       </div>
+      <%end%>
+    <%end%>
+    <%flash.discard()%>
+
+    <% if user_masquerade? %>
+      <div style="margin-bottom: 0px">
+        You're masquerading as <%= current_user.email %>.
+        <%= link_to back_masquerade_path(current_user) do %>
+          Logout 
+        <% end %>
+      </div>
+    <% end %>
+    
+  
+    <%= yield %>
+  </body>
+</html>
