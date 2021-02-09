@@ -1,6 +1,6 @@
 class Admins::MasqueradesController < Devise::MasqueradesController
 
-	def show
+  def show
     super
   end
  

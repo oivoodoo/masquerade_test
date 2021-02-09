@@ -2,22 +2,22 @@
 
 <%if @user_list.size > 0 %>
   <table>
-  	<thead>
-  		<tr>
-  			<th>User</th>  
-  			<th></th>  
-  		</tr>
-  	</thead>
-  	<tbody>
-	  <%@user_list.each do |u|%>
-	    <tr>
-	    	<td>
-	    		<%=u.email%>
-	    	</td>
-	    	<td>
-	    		<%=link_to "Login as", masquerade_path(u)%>
-	    	</td>
-	    </tr>
+    <thead>
+      <tr>
+        <th>User</th>  
+        <th></th>  
+      </tr>
+    </thead>
+    <tbody>
+    <%@user_list.each do |u|%>
+      <tr>
+        <td>
+          <%=u.email%>
+        </td>
+        <td>
+          <%=link_to "Login as", masquerade_path(u)%>
+        </td>
+      </tr>
     <%end%>
   </table>
 <%end%>

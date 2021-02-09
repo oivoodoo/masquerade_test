@@ -1,6 +1,6 @@
 class Admins::SwitchUserController < ApplicationController
 
-	def index
+  def index
     @user_list = User.all
   end
  
